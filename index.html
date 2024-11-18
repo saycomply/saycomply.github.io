@@ -311,15 +311,36 @@ We then design a task planner using a tree-based retrieval augmented generation 
                alt="SayComply architecture."
                style="width: 90%; height: auto;"/>
         </div>
+        <div class="content has-text-justified">
+          <p>
+            At a high level, SayComply consists of the following steps. 
+            Prior to robot deployment, we build a hierarchical context database from various written manuals and instructions. 
+            Next, given a user query, relevant context source is retrieved using a tree-based RAG and LLM method. 
+            Finally, the compliant task planner generates robot tasks based on the retrieved context. 
+            Tasks are executed by the robot through behavior manager and the robot observations are stored in the database.
+         </p>
+
+        </div>
         
 
         <!-- Interpolating. -->
         <h3 class="title is-4">Operational Context Sources</h3>
 
+        <div class="content has-text-justified">
+          <p>
+            Given that no existing benchmarks exist for field robotic task planning under operational compliance, we design a new set of experiments based on real-world use cases:
+            1) Industrial inspection in oil & gas and manufacturing, 2) Office operations and maintenance, and 3) Embodiment-aware operation in the field.
+          </p>
+          <p>
+            We compile all relevant instructions and manuals and simulate past observations for these three use cases, building a hierarchical database of context sources that includes 62 different manuals, instructions, and files.
+          </p>
+
+        </div>
+
         <div class="column is-centered has-text-centered">
           <img src="./static/images/source.png"
                class="interpolation-image"
-               alt="SayComply architecture."
+               alt="Operational context sources."
                style="width: 70%; height: auto;"/>
         </div>
 
@@ -333,12 +354,11 @@ We then design a task planner using a tree-based retrieval augmented generation 
         <!--/ Interpolating. -->
 
         <!-- Re-rendering. -->
-        <h3 class="title is-4">Illustrative Example</h3>
+        <h3 class="title is-4">SayComply Context Retrieval and Planning Example</h3>
         <div class="content has-text-justified">
-          <!-- <p>
-            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
-            viewpoint such as a stabilized camera by playing back the training deformations.
-          </p> -->
+          <p>
+            The following video shows how SayComply retrieves relevant context sources and generates robot tasks for a given user query.
+          </p>
         </div>
         <div class="content has-text-centered">
           <video id="replay-video"
@@ -384,9 +404,8 @@ We then design a task planner using a tree-based retrieval augmented generation 
 
         <div class="content has-text-justified">
           <p>
-            We evaluate our approach on a simulated environment and a real-world robot platform. 
-            We demonstrate the benefits of our approach through simulations and hardware experiments in real-world scenarios that require precise context retrieval across various types of context, outperforming the standard RAG method. 
-            Our approach bridges the gap in deploying robots that consistently adhere to operational protocols, offering a scalable and edge-deployable solution for ensuring compliance across varied and complex real-world environments.
+            We validate our approach through experiments in different real-world scenarios in industrial inspections that require grounding to operational compliance, alongside extensive experiments in NVIDIA’s high-fidelity Isaac simulator and on Boston Dynamics Spot robots. 
+            The video shows examples of hardware experiments in office operations and maintenance scenarios.
           </p>
         </div>
       </div>
